@@ -1,4 +1,6 @@
-export default {
+import { Configuration } from "@nuxt/types";
+
+const config: Configuration = {
   mode: "universal",
   /*
    ** Headers of the page
@@ -37,7 +39,8 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    "@nuxtjs/axios"
+    "@nuxtjs/axios",
+    "@nuxtjs/bulma"
   ],
   /*
    ** Axios module configuration
@@ -51,6 +54,17 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    // extend(config, ctx) {}
+    extend(config, ctx) {
+      if (ctx.isDev && ctx.isClient && config.module) {
+        config.module.rules.push({
+          enforce: "pre",
+          test: /\.(js|ts|vue)$/,
+          loader: "eslint-loader",
+          exclude: /[node_modules]/
+        });
+      }
+    }
   }
 };
+
+export default config;
