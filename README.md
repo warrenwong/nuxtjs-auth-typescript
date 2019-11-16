@@ -1,6 +1,6 @@
-# nuxt-auth
+# nuxtjs-auth-typescript
 
-> My brilliant Nuxt.js project
+> NuxtJS Auth TypeScript Boilerplate
 
 ## Build Setup
 
