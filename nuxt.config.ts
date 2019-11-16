@@ -40,16 +40,9 @@ const config: Configuration = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
+    "@nuxtjs/auth",
     "@nuxtjs/bulma"
   ],
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  axios: {},
-  /*
-   ** Build configuration
-   */
   build: {
     /*
      ** You can extend webpack config here
@@ -64,6 +57,11 @@ const config: Configuration = {
         });
       }
     }
+  },
+  axios: {},
+  auth: {},
+  router: {
+    middleware: "auth"
   }
 };
 
